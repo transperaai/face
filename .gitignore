@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.onnx
+*.pth
+temp/
+output.jpg
+input.jpg
+target.jpg
+.DS_Store
