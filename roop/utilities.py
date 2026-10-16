@@ -95,7 +95,9 @@ def move_temp(target_path: str, output_path: str) -> None:
     if os.path.isfile(temp_output_path):
         if os.path.isfile(output_path):
             os.remove(output_path)
-        shutil.move(temp_output_path, output_path)
+        # copyfile (not move/copy2): some mounts, e.g. RunPod /workspace, reject chmod/utime
+        shutil.copyfile(temp_output_path, output_path)
+        os.remove(temp_output_path)
 
 
 def clean_temp(target_path: str) -> None:
